@@ -34,12 +34,12 @@ ActiveRecord::Schema.define(version: 2021_02_24_225159) do
     t.bigint "category_id", null: false
     t.string "name"
     t.string "type_of"
-    t.string "description"
     t.string "brand"
-    t.string "image"
     t.integer "cost"
     t.string "cost_range"
     t.integer "time_of_use"
+    t.string "description"
+    t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["category_id"], name: "index_products_on_category_id"
