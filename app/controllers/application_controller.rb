@@ -12,7 +12,6 @@ class ApplicationController < ActionController::API
         # if anything goes wrong, send an unauthorized status back
         render json: { errors: ["Not authorized"] }, status: :unauthorized
         
-        # fake auth byebye
-        # @current_user = User.first
+     
     end
 end
