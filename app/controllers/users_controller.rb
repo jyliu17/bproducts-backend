@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-    before_action :authenticate, only:[:show, :update]
+    before_action :authenticate, only:[:show, :update, :index]
 
     def index
         @users = User.all
@@ -20,18 +20,18 @@ class UsersController < ApplicationController
         end
     end
 
-    def signup
-        # create a user in the backend
-        user = User.create(user_params)
-        if user.valid?
-          # if the user is created successfully, send back the user
-          token = JWT.encode({ user_id: user.id }, 'mysecret', 'HS256')
-          render json: { user: UserSerializer.new(user), token: token }
-        else
-          # otherwise, send back an error
-          render json: { errors: user.errors.full_messages }, status: :unauthorized
-        end
-    end   
+    # def signup
+    #     # create a user in the backend
+    #     user = User.create(user_params)
+    #     if user.valid?
+    #       # if the user is created successfully, send back the user
+    #       token = JWT.encode({ user_id: user.id }, 'mysecret', 'HS256')
+    #       render json: { user: UserSerializer.new(user), token: token }
+    #     else
+    #       # otherwise, send back an error
+    #       render json: { errors: user.errors.full_messages }, status: :unauthorized
+    #     end
+    # end   
     
     def signup
         @user = User.create(user_params)

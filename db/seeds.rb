@@ -23,3 +23,5 @@ Review.create(user_id: 1, product_id: 3, comment: "Awesome stroller, the all ter
 Review.create(user_id: 1, product_id: 1, comment: "Great all around stroller. Just a little low to the groud. ", rating: 4)
 Review.create(user_id: 2, product_id: 2, comment: "This stroller fits my style.  Love it!", rating: 5)
 
+Favorite.create(user_id: 1, product_id: 3)
+Favorite.create(user_id: 2, product_id: 2)
