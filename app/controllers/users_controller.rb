@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-    before_action :authenticate, only:[:show, :update, :index]
+    before_action :authenticate, only:[:show, :update, :self]
 
     def index
         @users = User.all
@@ -53,7 +53,11 @@ class UsersController < ApplicationController
       end
     end
  
-    
+    def self
+      user = @current_user
+      render json: user
+    end
+
     def show 
         user = User.find_by(params[:password])
         render json: user
